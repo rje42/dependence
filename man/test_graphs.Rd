@@ -5,8 +5,11 @@
 \alias{test_graphs}
 \alias{gr_gc1}
 \alias{gr_fig3}
+\alias{grGadget}
 \title{Mixed graphs for testing algorithms}
 \format{
+An object of class \code{mixedgraph} of length 3.
+
 An object of class \code{mixedgraph} of length 3.
 
 An object of class \code{mixedgraph} of length 3.
@@ -15,6 +18,8 @@ An object of class \code{mixedgraph} of length 3.
 gr_gc1
 
 gr_fig3
+
+grGadget
 }
 \description{
 Mixed graphs for testing algorithms
@@ -28,6 +33,8 @@ the algorithms developed in Evans (2021).
 \item \code{gr_gc1}: \code{mixedgraph} object
 
 \item \code{gr_fig3}: \code{mixedgraph} object
+
+\item \code{grGadget}: \code{mixedgraph} object (the 'gadget' graph)
 }}
 
 \keyword{datasets}

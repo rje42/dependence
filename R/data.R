@@ -11,3 +11,6 @@ NULL
 
 ##' @describeIn test_graphs \code{mixedgraph} object
 "gr_fig3"
+
+##' @describeIn test_graphs \code{mixedgraph} object (the 'gadget' graph)
+"grGadget"

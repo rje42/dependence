@@ -1,0 +1,64 @@
+---
+title: "introduction"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##"
+)
+```
+
+
+## Introduction to the dependence package
+
+This package implements methods from Evans (2021).  As always we begin
+by loading the package.
+```{r setup}
+library(dependence)
+```
+There are several built-in graphs to try these methods out on.  
+
+### The Instrumental Variables Model
+
+Let us first 
+start with `grIV`, from the `MixedGraphs` package.  We can obtain the canonical
+DAG for this graph using the command `canonicalDAG`:
+```{r}
+grIVa <- canonicalDAG(grIV)
+rBinDAG(n=10, grIVa)
+```
+Note that the second and fourth columns are identical.  We can also hide the 
+hidden variables:
+```{r}
+rBinDAG(n=10, grIVa, hide=TRUE)
+```
+Simulating a larger amount of data, we see that we indeed obtain independence
+between the first and second variables:
+```{r}
+dat <- rBinDAG(n=1e5, grIVa, hide=TRUE)
+xtabs(~x1+x2, data=dat)
+xtabs(~x1+x3, data=dat)
+```
+
+### The Gadget Model
+
+The gadget graph (Figure 2 in Evans, 2021) is included in this package.  We can
+also simulate data from this graph:
+```{r, fig.height=7, fig.width=7}
+grGa <- canonicalDAG(grGadget)
+dat <- rUnifDAG(1e3, grGa, hide=TRUE)
+pairs(dat)
+```
+
+Note that the dependence between `x3` and `x4` is negative, because we simulate
+in a slightly different way to that suggested in the original paper.
+
+### Reference
+
+Evans, R.J., Dependency in DAG models with Hidden Variables, _UAI-21_, 2021.

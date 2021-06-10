@@ -4,12 +4,21 @@
 ##' @param graph canonical DAG
 ##' @param hide should latent variables be removed?
 ##'
+##' @details These functions return a \code{data.frame} object, with column
+##' names taken from the vertex names in \code{graph}.
+##'
 ##' @name simulate_DAG
 NULL
 
 ##' @describeIn simulate_DAG with binary variables
 ##' @export
 rBinDAG <- function(n, graph, hide=FALSE) {
+
+  ## check graph is a DAG, and if not then try to make it into one
+  if (!is.DAG(graph)) {
+    if (is.ADMG(graph)) graph <- canonicalDAG(graph)
+    else stop("Must be an ADMG")
+  }
 
   ## set up matrix for output
   out <- matrix(NA, n, nv(graph))
@@ -33,12 +42,18 @@ rBinDAG <- function(n, graph, hide=FALSE) {
     out <- out[,-grep("H", first_char)]
   }
 
-  out
+  data.frame(out)
 }
 
 ##' @describeIn simulate_DAG with uniform variables
 ##' @export
 rUnifDAG <- function(n, graph, hide=FALSE) {
+
+  ## check graph is a DAG, and if not then try to make it into one
+  if (!is.DAG(graph)) {
+    if (is.ADMG(graph)) graph <- canonicalDAG(graph)
+    else stop("Must be an ADMG")
+  }
 
   ## set up matrix for output
   out <- matrix(NA, n, nv(graph))
@@ -77,6 +92,6 @@ rUnifDAG <- function(n, graph, hide=FALSE) {
     out <- out[,-grep("H", first_char)]
   }
 
-  out
+  data.frame(out)
 }
 

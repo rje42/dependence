@@ -20,6 +20,10 @@ rUnifDAG(n, graph, hide = FALSE)
 \description{
 Simulate according to a DAG
 }
+\details{
+These functions return a \code{data.frame} object, with column
+names taken from the vertex names in \code{graph}.
+}
 \section{Functions}{
 \itemize{
 \item \code{rBinDAG}: with binary variables
