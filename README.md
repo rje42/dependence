@@ -5,10 +5,6 @@ date: "10/06/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## dependence
 
 This is a package of functions that replicates the results of the 2021 paper 
