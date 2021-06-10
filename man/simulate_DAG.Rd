@@ -6,14 +6,16 @@
 \alias{rUnifDAG}
 \title{Simulate according to a DAG}
 \usage{
-rBinDAG(n, graph)
+rBinDAG(n, graph, hide = FALSE)
 
-rUnifDAG(n, graph)
+rUnifDAG(n, graph, hide = FALSE)
 }
 \arguments{
 \item{n}{number of observations to simulate}
 
 \item{graph}{canonical DAG}
+
+\item{hide}{should latent variables be removed?}
 }
 \description{
 Simulate according to a DAG

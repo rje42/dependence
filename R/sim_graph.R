@@ -59,6 +59,7 @@ reduce_graph <- function (graph, B, w) {
 }
 
 ##' @param v,w two vertices w.r.t. which we wish to reduce the graph
+##' @export
 reduce_graph2 <- function (graph, v, w, pref) {
 
   if (missing(graph) || missing(v) || missing(w)) stop("must specify a graph and two vertices v,w")
@@ -148,6 +149,7 @@ reduce_graph2 <- function (graph, v, w, pref) {
 ##'
 ##' @param ADMG of class \code{mixedgraph}
 ##'
+##' @export
 canonicalDAG <- function (graph) {
   if (!is.ADMG(graph)) stop("Graph should be an ADMG")
   if (is.DAG(graph)) return(graph)
