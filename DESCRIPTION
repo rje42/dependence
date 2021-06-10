@@ -1,0 +1,19 @@
+Package: dependence
+Type: Package
+Title: Arbitrary dependence in DAGs with hidden variables
+Version: 0.1.0
+Authors@R: c(
+  person("Robin", "Evans", , "evans@stats.ox.ac.uk", role = c("aut", "cre")))
+Description: This package provides functions for getting arbitrary dependence in 
+    DAGs with hidden variables.
+License: GPLv2
+Depends: 
+    rje,
+    MixedGraphs,
+    ADMGs2,
+    R (>= 2.10)
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat
+RoxygenNote: 7.1.1
