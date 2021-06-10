@@ -53,6 +53,16 @@ treeTop <- function(A, r) {
   out
 }
 
-shortestPath <- function (A, a, b) {
+bitwise <- function (x) {
 
+  out <- matrix(0, nrow=length(x), ncol=53)
+  for (i in seq_len(53)) {
+    wh <- which(x >= 2^-i)
+    out[wh,i] <- 1
+    x[wh] <- x[wh] - 2^-i
+  }
+
+  if (!is.null(dim(x))) dim(out) <- c(dim(x), 53)
+
+  out
 }

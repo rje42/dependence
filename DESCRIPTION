@@ -1,7 +1,7 @@
 Package: dependence
 Type: Package
 Title: Arbitrary dependence in DAGs with hidden variables
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
   person("Robin", "Evans", , "evans@stats.ox.ac.uk", role = c("aut", "cre")))
 Description: This package provides functions for getting arbitrary dependence in 
@@ -15,6 +15,7 @@ Depends:
 Encoding: UTF-8
 LazyData: true
 Suggests: 
+    MVN, 
     rmarkdown,
     knitr,
     testthat

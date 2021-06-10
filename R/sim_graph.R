@@ -5,6 +5,14 @@
 ##' @param w (optionally) an additional parent vertex of the intrinsic closure
 ##' of \code{B} for when it consists of a single vertex.
 ##'
+##' @details \code{reduce_graph} implements application of Proposition 5.2 from
+##' Evans (2021) to
+##' obtain a smaller graph with respect to which perfect dependence between
+##' two variables is still possible.
+##'
+##' \code{reduce_graph2} implements Algorithm 1 from Evans (2021) to obtain a
+##' minimal subgraph of the output from \code{reduce_graph}.
+##'
 ##' @export
 reduce_graph <- function (graph, B, w) {
 
@@ -58,6 +66,7 @@ reduce_graph <- function (graph, B, w) {
   graph
 }
 
+##' @describeIn reduce_graph Make minimal using Algorithm 1
 ##' @param v,w two vertices w.r.t. which we wish to reduce the graph
 ##' @export
 reduce_graph2 <- function (graph, v, w, pref) {

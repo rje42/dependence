@@ -95,3 +95,20 @@ rUnifDAG <- function(n, graph, hide=FALSE) {
   data.frame(out)
 }
 
+##' @describeIn simulate_DAG multivariate normal distributions
+##' @param rho correlation parameter to use
+rNormDAG <- function (n, graph, rho, hide=FALSE) {
+
+  dat0 <- rUnifDAG(n, graph, hide=hide)
+
+  dat <- as.data.frame(lapply(dat0, qnorm))
+  cors <- cor(dat)
+  wh <- which(abs(cors*lower.tri(cors)) > 1 - .Machine$double.eps^.5, arr.ind = TRUE)
+  if (length(wh) != 2) stop("Failed to find unique strongly correlated pair")
+  if (cors[wh[1],wh[2]] < 0) dat[,wh[2]] <- -dat[,wh[2]]
+
+  ## add suitable amount of noise
+  dat[,wh[2]] <- rho*dat[,wh[2]] + sqrt(1-rho^2)*rnorm(n)
+
+  data.frame(dat)
+}

@@ -4,11 +4,14 @@
 \alias{simulate_DAG}
 \alias{rBinDAG}
 \alias{rUnifDAG}
+\alias{rNormDAG}
 \title{Simulate according to a DAG}
 \usage{
 rBinDAG(n, graph, hide = FALSE)
 
 rUnifDAG(n, graph, hide = FALSE)
+
+rNormDAG(n, graph, rho, hide = FALSE)
 }
 \arguments{
 \item{n}{number of observations to simulate}
@@ -16,6 +19,8 @@ rUnifDAG(n, graph, hide = FALSE)
 \item{graph}{canonical DAG}
 
 \item{hide}{should latent variables be removed?}
+
+\item{rho}{correlation parameter to use}
 }
 \description{
 Simulate according to a DAG
@@ -29,5 +34,7 @@ names taken from the vertex names in \code{graph}.
 \item \code{rBinDAG}: with binary variables
 
 \item \code{rUnifDAG}: with uniform variables
+
+\item \code{rNormDAG}: multivariate normal distributions
 }}
 

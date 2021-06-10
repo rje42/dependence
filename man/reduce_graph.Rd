@@ -2,9 +2,12 @@
 % Please edit documentation in R/sim_graph.R
 \name{reduce_graph}
 \alias{reduce_graph}
+\alias{reduce_graph2}
 \title{Reduce for a chosen set of target variables}
 \usage{
 reduce_graph(graph, B, w)
+
+reduce_graph2(graph, v, w, pref)
 }
 \arguments{
 \item{graph}{a \code{mixedgraph} object.}
@@ -13,7 +16,23 @@ reduce_graph(graph, B, w)
 
 \item{w}{(optionally) an additional parent vertex of the intrinsic closure
 of \code{B} for when it consists of a single vertex.}
+
+\item{v, w}{two vertices w.r.t. which we wish to reduce the graph}
 }
 \description{
 Reduce for a chosen set of target variables
 }
+\details{
+\code{reduce_graph} implements application of Proposition 5.2 from
+Evans (2021) to
+obtain a smaller graph with respect to which perfect dependence between
+two variables is still possible.
+
+\code{reduce_graph2} implements Algorithm 1 to obtain a minimal subgraph of
+the output from \code{reduce_graph}.
+}
+\section{Functions}{
+\itemize{
+\item \code{reduce_graph2}: Make minimal using Algorithm 1
+}}
+
